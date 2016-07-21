@@ -1,0 +1,54 @@
+<input type="text" id="number"/>
+<input type="button" value="create button" onclick="createbtn()"/> 
+<div class="buttons"></div>
+
+<script>
+function createbtn() 
+{
+ var buttons_container = document.getElementsByClassName("buttons")[0];
+ var n=document.getElementById("number").value;
+
+ buttons_container.innerHTML = '';
+
+ for(i=1;i<=n;i++)
+ {
+  var x = document.createElement("INPUT");
+  x.setAttribute("type", "button");
+  x.setAttribute("value", i);
+  x.setAttribute("id","x"+i);
+  buttons_container.appendChild(x);
+  x.addEventListener('click', rotate.bind(null, i));
+  //x.addEventListener('click', (function(i_local_copy) { return function() {
+       // rotate(i_local_copy);
+       // }; })(i));
+     
+ } 
+       
+
+
+}
+
+
+
+
+ function rotate(p)
+     {	
+      var n=document.getElementById("number").value;
+ var j=n;
+ var k=0; 
+
+ 
+ 
+ for(i=n;i>p;i--)
+ {
+  document.getElementById("x"+i).value=i-p;
+ }
+ for(i=1;i<=p;i++)
+ {
+ document.getElementById("x"+i).value=(j-(p-1))+k; 
+ k++;
+ }
+ 
+
+}
+</script>
